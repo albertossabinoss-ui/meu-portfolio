@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="pt" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alberto Mugabe Sabino - Portfólio & Cartão Digital</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0B0F17',
+                            card: '#151C28',
+                            border: '#232D3F',
+                            blue: '#0284C7',
+                            lightBlue: '#38BDF8',
+                            gold: '#F59E0B',
+                            goldHover: '#D97706'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Segoe UI', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- QR Code Generator JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        body {
+            background-color: #0B0F17;
+            color: #F3F4F6;
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .glass-card {
+            background: rgba(21, 28, 40, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .gradient-border {
+            position: relative;
+            border-radius: 1rem;
+            background: linear-gradient(135deg, rgba(2,132,199,0.4), rgba(245,158,11,0.2));
+            padding: 1px;
+        }
+        .gradient-border-inner {
+            background: #151C28;
+            border-radius: calc(1rem - 1px);
+        }
+        .glow-blue {
+            box-shadow: 0 0 25px rgba(2, 132, 199, 0.25);
+        }
+        .glow-gold {
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.2);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0F17;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #232D3F;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0284C7;
+        }
+    </style>
+</head>
+<body class="min-h-screen pb-16">
+
+    <!-- Top Navigation Bar -->
+    <nav class="sticky top-0 z-50 glass-card border-b border-gray-800 px-4 py-3">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <span class="w-3 h-3 rounded-full bg-brand-blue animate-pulse"></span>
+                <span class="font-bold text-sm md:text-base tracking-wide text-white">AMS<span class="text-brand-gold">.digital</span></span>
+            </div>
+            <div class="flex items-center space-x-3 text-xs md:text-sm">
+                <a href="#cartao" class="text-gray-300 hover:text-brand-lightBlue transition">Cartão</a>
+                <a href="#competencias" class="text-gray-300 hover:text-brand-lightBlue transition">Serviços</a>
+                <a href="#experiencia" class="text-gray-300 hover:text-brand-lightBlue transition">Carreira</a>
+                <a href="#contacto" class="bg-brand-blue hover:bg-blue-600 text-white px-3 py-1.5 rounded-lg transition font-medium">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-4 pt-6 space-y-8">
+
+        <!-- HEADER SECTION & PROFILE HERO -->
+        <section class="gradient-border glow-blue">
+            <div class="gradient-border-inner p-6 md:p-8 flex flex-col md:flex-row items-center text-center md:text-left gap-6">
+                <!-- Profile Image -->
+                <div class="relative group">
+                    <div class="w-32 h-32 md:w-36 md:h-36 rounded-full p-1 bg-gradient-to-tr from-brand-blue to-brand-gold">
+                        <img src="https://lh3.googleusercontent.com/gg-dl/AHiVA1kHvCVAKPfB4M5DUU871dyVJh5_9YeQVSUovWwjgSvOb8nlIgBHoNI4azwYwW-7yiW56g1P7_jy9acm_fcDlqSR_Nxs486Lt-Zhd5xfPUo1g9L8uBN-9KRCgC72gqR23X4w8_FKJRa2cg00uMZcsq_XmFY37zX7haqTT-xk0uNI7T4R" 
+                             alt="Alberto Mugabe Sabino" 
+                             class="w-full h-full object-cover rounded-full bg-gray-800"
+                             onerror="this.src='https://placehold.co/150x150/151C28/38BDF8?text=AMS'">
+                    </div>
+                    <span class="absolute bottom-1 right-1 bg-green-500 border-2 border-brand-dark w-4 h-4 rounded-full" title="Disponível para projetos"></span>
+                </div>
+
+                <!-- Info Header -->
+                <div class="flex-1 space-y-2">
+                    <span class="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-gold bg-brand-gold/10 rounded-full border border-brand-gold/20">
+                        Perfil Profissional
+                    </span>
+                    <h1 class="text-2xl md:text-3xl font-extrabold text-white tracking-tight">
+                        Alberto Mugabe Sabino
+                    </h1>
+                    <p class="text-sm md:text-base text-brand-lightBlue font-medium">
+                        Técnico de Inspeção <span class="text-gray-500">|</span> Eletricista <span class="text-gray-500">|</span> Suporte & Manutenção de TI
+                    </p>
+
+                    <!-- Fast Meta Info -->
+                    <div class="pt-2 flex flex-wrap justify-center md:justify-start gap-4 text-xs text-gray-400">
+                        <span class="flex items-center"><i class="fa-solid fa-location-dot text-brand-gold mr-1.5"></i> Tchumene 2, Matola</span>
+                        <span class="flex items-center"><i class="fa-solid fa-briefcase text-brand-blue mr-1.5"></i> Magueze / EDM</span>
+                        <span class="flex items-center"><i class="fa-solid fa-id-card text-green-400 mr-1.5"></i> Registo CBE</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 1-CLICK ACTION BUTTONS (CTAs) -->
+        <section class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+            <!-- WhatsApp -->
+            <a href="https://wa.me/258846494014?text=Olá%20Alberto,%20vi%20o%20teu%20portfólio%20digital%20e%20gostaria%20de%20falar%20contigo." 
+               target="_blank" 
+               class="glass-card p-3 rounded-xl flex flex-col items-center justify-center text-center hover:bg-green-600/20 hover:border-green-500/40 transition group">
+                <i class="fa-brands fa-whatsapp text-2xl text-green-500 group-hover:scale-110 transition mb-1"></i>
+                <span class="text-xs font-bold text-white">WhatsApp</span>
+                <span class="text-[10px] text-gray-400">Mensagem Direta</span>
+            </a>
+
+            <!-- Ligar -->
+            <a href="tel:+258846494014" 
+               class="glass-card p-3 rounded-xl flex flex-col items-center justify-center text-center hover:bg-brand-blue/20 hover:border-brand-blue/40 transition group">
+                <i class="fa-solid fa-phone text-2xl text-brand-blue group-hover:scale-110 transition mb-1"></i>
+                <span class="text-xs font-bold text-white">Ligar</span>
+                <span class="text-[10px] text-gray-400">84 649 4014</span>
+            </a>
+
+            <!-- E-mail -->
+            <a href="mailto:albertossabinoss@gmail.com" 
+               class="glass-card p-3 rounded-xl flex flex-col items-center justify-center text-center hover:bg-red-500/20 hover:border-red-500/40 transition group">
+                <i class="fa-solid fa-envelope text-2xl text-red-400 group-hover:scale-110 transition mb-1"></i>
+                <span class="text-xs font-bold text-white">E-mail</span>
+                <span class="text-[10px] text-gray-400">Enviar Mensagem</span>
+            </a>
+
+            <!-- Guardar Contacto (vCard) -->
+            <button onclick="downloadVCard()" 
+                    class="glass-card p-3 rounded-xl flex flex-col items-center justify-center text-center hover:bg-brand-gold/20 hover:border-brand-gold/40 transition group">
+                <i class="fa-solid fa-address-book text-2xl text-brand-gold group-hover:scale-110 transition mb-1"></i>
+                <span class="text-xs font-bold text-white">Guardar VCard</span>
+                <span class="text-[10px] text-gray-400">Adicionar à Agenda</span>
+            </button>
+
+            <!-- Descarregar CV -->
+            <a href="curriculo_alberto_sabino.docx" download 
+               class="col-span-2 sm:col-span-1 glass-card p-3 rounded-xl flex flex-col items-center justify-center text-center hover:bg-purple-600/20 hover:border-purple-500/40 transition group">
+                <i class="fa-solid fa-file-arrow-down text-2xl text-purple-400 group-hover:scale-110 transition mb-1"></i>
+                <span class="text-xs font-bold text-white">Descarregar CV</span>
+                <span class="text-[10px] text-gray-400">Ficheiro Completo</span>
+            </a>
+        </section>
+
+        <!-- INTERACTIVE BUSINESS CARD & QR CODE -->
+        <section id="cartao" class="space-y-4">
+            <div class="flex justify-between items-center">
+                <h2 class="text-lg font-bold text-white flex items-center">
+                    <i class="fa-solid fa-qrcode text-brand-gold mr-2"></i> Cartão Digital & QR Code
+                </h2>
+                <span class="text-xs text-gray-400">Ideal para redes de contacto</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Virtual Business Card (Front) -->
+                <div class="gradient-border">
+                    <div class="gradient-border-inner p-6 flex flex-col justify-between h-56 relative overflow-hidden">
+                        <!-- Card Watermark Background -->
+                        <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl text-white pointer-events-none">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+
+                        <!-- Card Header -->
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-bold text-lg text-white">Alberto Mugabe Sabino</h3>
+                                <p class="text-xs text-brand-lightBlue">Técnico Especialista</p>
+                            </div>
+                            <span class="px-2 py-1 bg-brand-blue/20 text-brand-blue border border-brand-blue/30 rounded text-[10px] font-bold">AMS</span>
+                        </div>
+
+                        <!-- Card Details -->
+                        <div class="space-y-1 text-xs text-gray-300">
+                            <p><i class="fa-solid fa-phone text-brand-gold w-4"></i> +258 84 649 4014</p>
+                            <p><i class="fa-solid fa-envelope text-brand-gold w-4"></i> albertossabinoss@gmail.com</p>
+                            <p><i class="fa-solid fa-location-dot text-brand-gold w-4"></i> Tchumene 2, Matola</p>
+                        </div>
+
+                        <!-- Card Footer -->
+                        <div class="pt-3 border-t border-gray-800 flex justify-between items-center text-[10px] text-gray-400">
+                            <span>Magueze / EDM Partner</span>
+                            <span class="text-brand-gold">Eletricidade • TI • Inspeção</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- QR Code Display Container -->
+                <div class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center text-center space-y-3">
+                    <h3 class="text-sm font-semibold text-gray-200">Digitalizar para Partilhar Contacto</h3>
+                    <div id="qrcode" class="p-3 bg-white rounded-xl shadow-lg"></div>
+                    <p class="text-xs text-gray-400 max-w-xs">
+                        Aponta a câmara do telemóvel para abrir este portfólio instantaneamente.
+                    </p>
+                    <button onclick="copyPortfolioLink()" class="text-xs text-brand-lightBlue hover:underline flex items-center">
+                        <i class="fa-regular fa-copy mr-1"></i> Copiar Link do Portfólio
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CORE COMPETENCIES & SERVICES -->
+        <section id="competencias" class="space-y-4">
+            <h2 class="text-lg font-bold text-white flex items-center">
+                <i class="fa-solid fa-microchip text-brand-blue mr-2"></i> Áreas de Atuação & Competências
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- Competency 1: IT & Tech -->
+                <div class="glass-card p-5 rounded-2xl border-t-2 border-brand-blue hover:border-brand-lightBlue transition space-y-3">
+                    <div class="w-10 h-10 rounded-lg bg-brand-blue/20 text-brand-blue flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-base">Tecnologias de Informação</h3>
+                    <ul class="text-xs text-gray-300 space-y-2">
+                        <li class="flex items-start"><i class="fa-solid fa-check text-brand-blue mr-2 mt-0.5"></i> Instalação de Windows do zero</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-brand-blue mr-2 mt-0.5"></i> Manutenção de Hardware & Software (PC)</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-brand-blue mr-2 mt-0.5"></i> Remoção de bloqueios FRP & Passwords</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-brand-blue mr-2 mt-0.5"></i> Instalação de Firmware (Android & iOS)</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-brand-blue mr-2 mt-0.5"></i> Pacote Office Completo (Word, Excel)</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-brand-blue mr-2 mt-0.5"></i> Operação de CMS & Citrix</li>
+                    </ul>
+                </div>
+
+                <!-- Competency 2: Electricity -->
+                <div class="glass-card p-5 rounded-2xl border-t-2 border-brand-gold hover:border-amber-400 transition space-y-3">
+                    <div class="w-10 h-10 rounded-lg bg-brand-gold/20 text-brand-gold flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-plug"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-base">Eletricidade & Instalações</h3>
+                    <ul class="text-xs text-gray-300 space-y-2">
+                        <li class="flex items-start"><i class="fa-solid fa-check text-brand-gold mr-2 mt-0.5"></i> Instalações Monofásicas & Trifásicas</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-brand-gold mr-2 mt-0.5"></i> Instalações elétricas tipo 4</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-brand-gold mr-2 mt-0.5"></i> Montagem em vivendas de 1.º e 2.º andares</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-brand-gold mr-2 mt-0.5"></i> Instalação em lojas e espaços comerciais</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-brand-gold mr-2 mt-0.5"></i> Montagem e reparação de quadros elétricos</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-brand-gold mr-2 mt-0.5"></i> Resolução rápida de avarias</li>
+                    </ul>
+                </div>
+
+                <!-- Competency 3: Inspection & Lab -->
+                <div class="glass-card p-5 rounded-2xl border-t-2 border-green-500 hover:border-green-400 transition space-y-3">
+                    <div class="w-10 h-10 rounded-lg bg-green-500/20 text-green-400 flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-flask-vial"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-base">Inspeção & Laboratório</h3>
+                    <ul class="text-xs text-gray-300 space-y-2">
+                        <li class="flex items-start"><i class="fa-solid fa-check text-green-400 mr-2 mt-0.5"></i> Inspeção técnica na Magueze / EDM</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-green-400 mr-2 mt-0.5"></i> Cálculo avançado de fraudes elétricas</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-green-400 mr-2 mt-0.5"></i> Elaboração de relatórios técnicos</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-green-400 mr-2 mt-0.5"></i> Química laboratorial (Misturas básicas)</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-green-400 mr-2 mt-0.5"></i> Mediação e atendimento ao cliente</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- WORK HISTORY & QUALIFICATIONS TIMELINE -->
+        <section id="experiencia" class="space-y-4">
+            <h2 class="text-lg font-bold text-white flex items-center">
+                <i class="fa-solid fa-timeline text-brand-gold mr-2"></i> Percurso Profissional & Académico
+            </h2>
+
+            <div class="glass-card p-6 rounded-2xl space-y-6">
+                <!-- Timeline Item 1 -->
+                <div class="relative pl-6 border-l-2 border-brand-blue space-y-1">
+                    <span class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-brand-blue border-4 border-brand-dark"></span>
+                    <div class="flex justify-between items-baseline">
+                        <h3 class="font-bold text-white text-sm md:text-base">Técnico de Inspeção</h3>
+                        <span class="text-xs text-brand-lightBlue font-semibold">Maio 2026 – Presente</span>
+                    </div>
+                    <p class="text-xs font-semibold text-brand-gold">Magueze (em parceria com a Electricidade de Moçambique – EDM)</p>
+                    <p class="text-xs text-gray-400">
+                        Responsável pela fiscalização no terreno, deteção e cálculo técnico de fraudes de consumo, tratamento de dados em CMS/Citrix e elaboração de relatórios de campo.
+                    </p>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="relative pl-6 border-l-2 border-brand-gold space-y-1">
+                    <span class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-brand-gold border-4 border-brand-dark"></span>
+                    <div class="flex justify-between items-baseline">
+                        <h3 class="font-bold text-white text-sm md:text-base">Técnico de Laboratório (Química)</h3>
+                        <span class="text-xs text-gray-400 font-medium">Formação Concluída</span>
+                    </div>
+                    <p class="text-xs font-semibold text-brand-lightBlue">Instituto Industrial e Comercial da Matola (IICM)</p>
+                    <p class="text-xs text-gray-400">
+                        Capacitação prática em processos químicos básicos, análise de reagentes, segurança de laboratório e manuseamento de misturas.
+                    </p>
+                </div>
+
+                <!-- Timeline Item 3 -->
+                <div class="relative pl-6 border-l-2 border-green-500 space-y-1">
+                    <span class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-green-500 border-4 border-brand-dark"></span>
+                    <div class="flex justify-between items-baseline">
+                        <h3 class="font-bold text-white text-sm md:text-base">Qualificação em Eletricidade</h3>
+                        <span class="text-xs text-gray-400 font-medium">Formação Concluída</span>
+                    </div>
+                    <p class="text-xs font-semibold text-green-400">Centro de Formação Profissional Salesianos da Matola</p>
+                    <p class="text-xs text-gray-400">
+                        Especialização prática em montagem de circuitos elétricos, redes residenciais monofásicas/trifásicas e prevenção de riscos elétricos.
+                    </p>
+                </div>
+
+                <!-- Timeline Item 4 -->
+                <div class="relative pl-6 border-l-2 border-gray-600 space-y-1">
+                    <span class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-gray-600 border-4 border-brand-dark"></span>
+                    <div class="flex justify-between items-baseline">
+                        <h3 class="font-bold text-white text-sm md:text-base">Ensino Geral (10.ª Classe)</h3>
+                        <span class="text-xs text-gray-400 font-medium">Concluído em 2020</span>
+                    </div>
+                    <p class="text-xs text-gray-400">Ensino Secundário Geral com certificação oficial concluída.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUICK CONTACT FORM / ORÇAMENTO -->
+        <section id="contacto" class="space-y-4">
+            <h2 class="text-lg font-bold text-white flex items-center">
+                <i class="fa-solid fa-paper-plane text-brand-blue mr-2"></i> Pedido de Serviço / Orçamento Rápido
+            </h2>
+
+            <div class="glass-card p-6 rounded-2xl">
+                <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs text-gray-300 font-medium mb-1">Seu Nome</label>
+                            <input type="text" id="senderName" required 
+                                   class="w-full bg-brand-dark/80 border border-gray-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-brand-blue" 
+                                   placeholder="Ex: João Tembe">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-gray-300 font-medium mb-1">Seu Telemóvel / WhatsApp</label>
+                            <input type="tel" id="senderPhone" required 
+                                   class="w-full bg-brand-dark/80 border border-gray-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-brand-blue" 
+                                   placeholder="Ex: 84 123 4567">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs text-gray-300 font-medium mb-1">Tipo de Serviço Pretendido</label>
+                        <select id="serviceType" class="w-full bg-brand-dark/80 border border-gray-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-brand-blue">
+                            <option value="Eletricidade">Instalação / Reparação Elétrica</option>
+                            <option value="Informática">Suporte de TI / Formatação / Desbloqueio</option>
+                            <option value="Inspeção">Inspeção / Consultoria Técnica</option>
+                            <option value="Outro">Outro assunto</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs text-gray-300 font-medium mb-1">Descrição do Pedido</label>
+                        <textarea id="messageText" rows="3" required 
+                                  class="w-full bg-brand-dark/80 border border-gray-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-brand-blue" 
+                                  placeholder="Explique o que precisa com detalhes..."></textarea>
+                    </div>
+
+                    <button type="submit" 
+                            class="w-full bg-gradient-to-r from-brand-blue to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-2.5 rounded-lg text-xs tracking-wider uppercase transition shadow-lg">
+                        <i class="fa-brands fa-whatsapp mr-2 text-sm"></i> Enviar Mensagem via WhatsApp
+                    </button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="mt-12 text-center text-xs text-gray-500 space-y-1">
+        <p>© 2026 Alberto Mugabe Sabino. Todos os direitos reservados.</p>
+        <p>Desenvolvido para Máxima Eficiência &amp; Networking Digital.</p>
+    </footer>
+
+    <!-- JAVASCRIPT FUNCTIONS -->
+    <script>
+        // Generate Dynamic QR Code on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            const qrContainer = document.getElementById("qrcode");
+            qrContainer.innerHTML = "";
+            new QRCode(qrContainer, {
+                text: window.location.href,
+                width: 120,
+                height: 120,
+                colorDark : "#0B0F17",
+                colorLight : "#ffffff",
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+
+        // Function to dynamically generate and download vCard (.vcf)
+        function downloadVCard() {
+            const vcardData = `BEGIN:VCARD
+VERSION:3.0
+FN:Alberto Mugabe Sabino
+TITLE:Técnico de Inspeção | Eletricista | Suporte TI
+ORG:Magueze / EDM Partner
+TEL;TYPE=CELL;TYPE=VOICE:+258846494014
+EMAIL;TYPE=HOME,INTERNET:albertossabinoss@gmail.com
+ADR;TYPE=HOME:;;Bairro Tchumene 2;Matola;;;Moçambique
+NOTE:Perfil cadastrado no CBE. Especialista em Eletricidade, TI e Inspeções.
+END:VCARD`;
+
+            const blob = new Blob([vcardData], { type: 'text/vcard;charset=utf-8;' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.setAttribute('download', 'Alberto_Mugabe_Sabino.vcf');
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // Copy Portfolio Link to Clipboard
+        function copyPortfolioLink() {
+            const dummy = document.createElement('input');
+            document.body.appendChild(dummy);
+            dummy.value = window.location.href;
+            dummy.select();
+            document.execCommand('copy');
+            document.body.removeChild(dummy);
+            alert('Link do portfólio copiado com sucesso!');
+        }
+
+        // Handle Quick Contact Form via WhatsApp direct redirect
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('senderName').value;
+            const phone = document.getElementById('senderPhone').value;
+            const service = document.getElementById('serviceType').value;
+            const message = document.getElementById('messageText').value;
+
+            const fullMsg = `Olá Alberto! Meu nome é ${name} (${phone}).%0A%0A*Serviço Pretendido:* ${service}%0A*Detalhes:* ${message}`;
+            const whatsappUrl = `https://wa.me/258846494014?text=${fullMsg}`;
+            
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
