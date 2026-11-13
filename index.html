@@ -90,6 +90,11 @@
                 <a href="#cartao" class="text-gray-300 hover:text-brand-lightBlue transition">Cartão</a>
                 <a href="#competencias" class="text-gray-300 hover:text-brand-lightBlue transition">Serviços</a>
                 <a href="#experiencia" class="text-gray-300 hover:text-brand-lightBlue transition">Carreira</a>
+                <!-- Botão de Acesso à Área Privada AMS -->
+                <button onclick="tentarAcederAMS()" class="bg-brand-gold/20 text-brand-gold border border-brand-gold/40 px-2.5 py-1 rounded-lg transition font-bold flex items-center space-x-1 hover:bg-brand-gold hover:text-brand-dark">
+                    <i class="fa-solid fa-lock text-xs"></i>
+                    <span>AMS</span>
+                </button>
                 <a href="#contacto" class="bg-brand-blue hover:bg-blue-600 text-white px-3 py-1.5 rounded-lg transition font-medium">Contacto</a>
             </div>
         </div>
@@ -175,6 +180,97 @@
                 <span class="text-xs font-bold text-white">Descarregar CV</span>
                 <span class="text-[10px] text-gray-400">Ficheiro Completo</span>
             </a>
+        </section>
+
+        <!-- ÁREA PRIVADA AMS (ACADÉMICA / GESTÃO DE FICHEIRO SEGURO) -->
+        <section id="areaAMS" class="hidden gradient-border glow-gold transition-all duration-300">
+            <div class="gradient-border-inner p-6 space-y-6">
+                <div class="flex justify-between items-center border-b border-gray-800 pb-4">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-8 h-8 rounded-lg bg-brand-gold text-brand-dark flex items-center justify-center font-bold text-sm">AMS</div>
+                        <div>
+                            <h2 class="text-base font-bold text-white">Área Privada Protegida</h2>
+                            <p class="text-[10px] text-brand-gold">Acesso Autorizado (Palavra-passe: mugabe)</p>
+                        </div>
+                    </div>
+                    <button onclick="fecharAMS()" class="text-xs text-gray-400 hover:text-white bg-gray-800 px-3 py-1 rounded-lg">Fechar X</button>
+                </div>
+
+                <!-- Painel de Importação de Ficheiros -->
+                <div class="bg-brand-dark/60 p-4 rounded-xl border border-gray-800 space-y-3">
+                    <h3 class="text-xs font-bold text-white uppercase tracking-wider flex items-center">
+                        <i class="fa-solid fa-cloud-arrow-up text-brand-blue mr-2"></i> Importar Novo Ficheiro
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div>
+                            <label class="block text-[10px] text-gray-400 mb-1">Categoria de Destino</label>
+                            <select id="fileCategory" class="w-full bg-brand-dark border border-gray-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-brand-gold">
+                                <option value="fotos">Fotos</option>
+                                <option value="documentos">Documentos / Certificados</option>
+                                <option value="bi">Bilhete de Identidade (BI)</option>
+                                <option value="musicas">Músicas</option>
+                                <option value="videos">Vídeos</option>
+                            </select>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label class="block text-[10px] text-gray-400 mb-1">Selecionar Ficheiro do Aparelho</label>
+                            <div class="flex gap-2">
+                                <input type="file" id="fileInput" class="w-full bg-brand-dark border border-gray-700 rounded-lg px-2 py-1.5 text-xs text-gray-300 file:mr-3 file:py-1 file:px-3 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-brand-gold file:text-brand-dark hover:file:bg-brand-goldHover">
+                                <button onclick="importarFicheiro()" class="bg-brand-blue hover:bg-blue-600 text-white font-bold px-4 py-2 rounded-lg text-xs whitespace-nowrap transition">
+                                    Guardar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Abas Internas da Área Privada -->
+                <div>
+                    <div class="flex flex-wrap gap-2 border-b border-gray-800 pb-3 text-xs">
+                        <button onclick="mudarAbaAMS('fotos')" id="tabBtnFotos" class="px-3 py-1.5 rounded-lg font-bold bg-brand-gold text-brand-dark transition">Fotos (<span id="countFotos">0</span>)</button>
+                        <button onclick="mudarAbaAMS('documentos')" id="tabBtnDocumentos" class="px-3 py-1.5 rounded-lg font-medium text-gray-300 hover:bg-gray-800 transition">Documentos (<span id="countDocumentos">0</span>)</button>
+                        <button onclick="mudarAbaAMS('bi')" id="tabBtnBi" class="px-3 py-1.5 rounded-lg font-medium text-gray-300 hover:bg-gray-800 transition">BI (<span id="countBi">0</span>)</button>
+                        <button onclick="mudarAbaAMS('musicas')" id="tabBtnMusicas" class="px-3 py-1.5 rounded-lg font-medium text-gray-300 hover:bg-gray-800 transition">Músicas (<span id="countMusicas">0</span>)</button>
+                        <button onclick="mudarAbaAMS('videos')" id="tabBtnVideos" class="px-3 py-1.5 rounded-lg font-medium text-gray-300 hover:bg-gray-800 transition">Vídeos (<span id="countVideos">0</span>)</button>
+                    </div>
+
+                    <!-- Conteúdo das Abas -->
+                    <div id="conteudoFotos" class="ams-tab-content pt-4 space-y-3">
+                        <p class="text-xs text-gray-400">As suas fotos importadas aparecerão aqui:</p>
+                        <div id="listFotos" class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                            <p class="text-xs text-gray-500 italic">Nenhuma foto guardada ainda.</p>
+                        </div>
+                    </div>
+
+                    <div id="conteudoDocumentos" class="ams-tab-content hidden pt-4 space-y-3">
+                        <p class="text-xs text-gray-400">Certificados e documentos profissionais:</p>
+                        <div id="listDocumentos" class="space-y-2">
+                            <p class="text-xs text-gray-500 italic">Nenhum documento guardado ainda.</p>
+                        </div>
+                    </div>
+
+                    <div id="conteudoBi" class="ams-tab-content hidden pt-4 space-y-3">
+                        <p class="text-xs text-gray-400">Bilhete de Identidade e registos de identificação:</p>
+                        <div id="listBi" class="space-y-2">
+                            <p class="text-xs text-gray-500 italic">Nenhum BI registado ainda.</p>
+                        </div>
+                    </div>
+
+                    <div id="conteudoMusicas" class="ams-tab-content hidden pt-4 space-y-3">
+                        <p class="text-xs text-gray-400">Músicas guardadas:</p>
+                        <div id="listMusicas" class="space-y-2">
+                            <p class="text-xs text-gray-500 italic">Nenhuma música guardada ainda.</p>
+                        </div>
+                    </div>
+
+                    <div id="conteudoVideos" class="ams-tab-content hidden pt-4 space-y-3">
+                        <p class="text-xs text-gray-400">Vídeos guardados:</p>
+                        <div id="listVideos" class="space-y-2">
+                            <p class="text-xs text-gray-500 italic">Nenhum vídeo guardado ainda.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- INTERACTIVE BUSINESS CARD & QR CODE -->
@@ -417,7 +513,135 @@
                 colorLight : "#ffffff",
                 correctLevel : QRCode.CorrectLevel.H
             });
+            atualizarContadores();
         });
+
+        // Função para autenticar e abrir a Área Privada AMS
+        function tentarAcederAMS() {
+            let senha = prompt("Introduza a palavra-passe da Área Privada AMS:");
+            if (senha === "mugabe") {
+                const area = document.getElementById('areaAMS');
+                area.classList.remove('hidden');
+                area.scrollIntoView({ behavior: 'smooth' });
+            } else if (senha !== null) {
+                alert("Palavra-passe incorreta!");
+            }
+        }
+
+        function fecharAMS() {
+            document.getElementById('areaAMS').classList.add('hidden');
+        }
+
+        // Sistema de Gestão de Abas da Área Privada
+        function mudarAbaAMS(aba) {
+            const abas = ['fotos', 'documentos', 'bi', 'musicas', 'videos'];
+            abas.forEach(a => {
+                document.getElementById('conteudo' + a.charAt(0).toUpperCase() + a.slice(1)).classList.add('hidden');
+                document.getElementById('tabBtn' + a.charAt(0).toUpperCase() + a.slice(1)).className = "px-3 py-1.5 rounded-lg font-medium text-gray-300 hover:bg-gray-800 transition";
+            });
+
+            document.getElementById('conteudo' + aba.charAt(0).toUpperCase() + aba.slice(1)).classList.remove('hidden');
+            document.getElementById('tabBtn' + aba.charAt(0).toUpperCase() + aba.slice(1)).className = "px-3 py-1.5 rounded-lg font-bold bg-brand-gold text-brand-dark transition";
+        }
+
+        // Importar e guardar ficheiros localmente no navegador
+        let amsStorage = JSON.parse(localStorage.getItem('ams_private_files')) || {
+            fotos: [], documentos: [], bi: [], musicas: [], videos: []
+        };
+
+        function importarFicheiro() {
+            const categoria = document.getElementById('fileCategory').value;
+            const fileInput = document.getElementById('fileInput');
+
+            if (fileInput.files.length === 0) {
+                alert("Por favor selecione um ficheiro primeiro!");
+                return;
+            }
+
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                const fileData = {
+                    nome: file.name,
+                    tipo: file.type,
+                    url: e.target.result,
+                    data: new Date().toLocaleDateString()
+                };
+
+                amsStorage[categoria].push(fileData);
+                localStorage.setItem('ams_private_files', JSON.stringify(amsStorage));
+                fileInput.value = '';
+                atualizarContadores();
+                renderizarFicheiros();
+                alert(`Ficheiro "${file.name}" importado e guardado com sucesso na aba ${categoria.toUpperCase()}!`);
+            };
+
+            reader.readAsDataURL(file);
+        }
+
+        function atualizarContadores() {
+            document.getElementById('countFotos').innerText = amsStorage.fotos.length;
+            document.getElementById('countDocumentos').innerText = amsStorage.documentos.length;
+            document.getElementById('countBi').innerText = amsStorage.bi.length;
+            document.getElementById('countMusicas').innerText = amsStorage.musicas.length;
+            document.getElementById('countVideos').innerText = amsStorage.videos.length;
+            renderizarFicheiros();
+        }
+
+        function renderizarFicheiros() {
+            // Render Fotos
+            const listFotos = document.getElementById('listFotos');
+            if (amsStorage.fotos.length === 0) {
+                listFotos.innerHTML = '<p class="text-xs text-gray-500 italic col-span-full">Nenhuma foto guardada ainda.</p>';
+            } else {
+                listFotos.innerHTML = amsStorage.fotos.map((f, index) => `
+                    <div class="bg-brand-dark p-2 rounded-xl border border-gray-800 space-y-1 relative group">
+                        <img src="${f.url}" alt="${f.nome}" class="w-full h-24 object-cover rounded-lg">
+                        <p class="text-[10px] text-gray-300 truncate">${f.nome}</p>
+                        <div class="flex justify-between items-center text-[10px]">
+                            <a href="${f.url}" download="${f.nome}" class="text-brand-blue hover:underline">Descarregar</a>
+                            <button onclick="apagarFicheiro('fotos', ${index})" class="text-red-400 hover:text-red-300">Apagar</button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // Render Documentos, BI, Músicas, Vídeos (Listas organizadas)
+            renderizarListaGenerica('documentos', 'listDocumentos', 'Nenhum documento guardado ainda.');
+            renderizarListaGenerica('bi', 'listBi', 'Nenhum BI registado ainda.');
+            renderizarListaGenerica('musicas', 'listMusicas', 'Nenhuma música guardada ainda.');
+            renderizarListaGenerica('videos', 'listVideos', 'Nenhum vídeo guardado ainda.');
+        }
+
+        function renderizarListaGenerica(categoria, elementId, vazioTexto) {
+            const container = document.getElementById(elementId);
+            const itens = amsStorage[categoria];
+            if (itens.length === 0) {
+                container.innerHTML = `<p class="text-xs text-gray-500 italic">${vazioTexto}</p>`;
+            } else {
+                container.innerHTML = itens.map((f, index) => `
+                    <div class="bg-brand-dark p-3 rounded-xl border border-gray-800 flex justify-between items-center text-xs">
+                        <div class="space-y-0.5 truncate pr-2">
+                            <p class="font-bold text-white truncate">${f.nome}</p>
+                            <p class="text-[10px] text-gray-400">Adicionado em: ${f.data}</p>
+                        </div>
+                        <div class="flex items-center space-x-3 whitespace-nowrap">
+                            <a href="${f.url}" download="${f.nome}" class="text-brand-blue hover:underline">Descarregar / Abrir</a>
+                            <button onclick="apagarFicheiro('${categoria}', ${index})" class="text-red-400 hover:text-red-300">Apagar</button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function apagarFicheiro(categoria, index) {
+            if (confirm("Tem certeza que pretende apagar este ficheiro?")) {
+                amsStorage[categoria].splice(index, 1);
+                localStorage.setItem('ams_private_files', JSON.stringify(amsStorage));
+                atualizarContadores();
+            }
+        }
 
         // Function to dynamically generate and download vCard (.vcf)
         function downloadVCard() {
